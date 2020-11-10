@@ -1,0 +1,84 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+  Inicio
+{% endblock %}
+
+{% block css%}
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'core/css/normalize.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/skeleton.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/custom.css' %}">
+<div>
+  <div style="text-align:center;">
+    <div id="hero">
+      <div class="container">
+          <div class="row">
+                  <div class="six columns">
+                      <div class="contenido-hero">
+                              <h2>Aprende algo nuevo</h2>
+                              <p>Todos los cursos a $15</p>
+                              <form action="#" id="busqueda" method="post" class="formulario">
+                                  <input class="u-full-width" type="text" placeholder="¿Que te gustaría Aprender?" id="buscador">
+                                  <input type="submit" id="submit-buscador" class="submit-buscador">
+                              </form>
+                      </div>
+                  </div>
+          </div> 
+      </div>
+  </div>
+
+  <div class="barra">
+      <div class="container">
+          <div class="row">
+                  <div class="four columns icono icono1">
+                      <p>20,000 Cursos en línea <br>
+                      Explora  los temas más recientes</p>
+                  </div>
+                  <div class="four columns icono icono2">
+                      <p>Instructores Expertos <br>
+                      Aprende con distintos estilos</p>
+                  </div>
+                  <div class="four columns icono icono3">
+                      <p>Acceso de por vida <br>
+                      Aprende a tu ritmo</p>
+                  </div>
+          </div>
+      </div>
+
+  </div>
+  <div id="lista-cursos" class="container">
+    {% for curso in cursos %}
+    <div class="row">
+        <div class="four columns">
+            <div class="card">
+                <div class="">
+                    {% if curso.imagen %}
+                    <img src="{{ curso.imagen.url }}" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h2>{{ curso.titulo }}</h2>
+                        <h2 class="">Precio: ${{ curso.precio }} </h2>
+                        <img src="{% static 'mantenedor/FotosImg/estrellas.png'%}">
+                    </br>
+                    <h3> Profesor: {{ curso.autor }}</h3>
+                    </br>
+                        <a href="" class="u-full-width button-primary button input" data-id="2">Detalles del curso</a>
+                        <a href="" class="u-full-width button-primary button input agregar-carrito" data-id="{{ curso.id }}">Agregar Al Carrito</a>
+                    </div>
+                    {% endif %}
+                    
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+  
+  </div>
+</div>
+{% endblock %}

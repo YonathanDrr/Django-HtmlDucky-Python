@@ -1,0 +1,116 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+  Inicio
+{% endblock %}
+
+{% block css%}
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'core/css/normalize.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/skeleton.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/custom.css' %}">
+<div>
+  <div style="text-align:center;">
+    <div id="hero">
+      <div class="container">
+          <div class="row">
+                  <div class="six columns">
+                      <div class="contenido-hero">
+                              <h2>Aprende algo nuevo</h2>
+                              <p>Todos los cursos a $10.000 CLP</p>
+                              <form action="#" id="busqueda" method="post" class="formulario">
+                                  <input class="u-full-width" type="text" placeholder="¿Que te gustaría Aprender?" id="buscador">
+                                  <input type="submit" id="submit-buscador" class="submit-buscador">
+                              </form>
+                      </div>
+                  </div>
+          </div> 
+      </div>
+  </div>
+
+  <div class="barra">
+      <div class="container">
+          <div class="row">
+                  <div class="four columns icono icono1">
+                      <p>Cursos Para todas las edades <br>
+                      Explora  los temas más recientes</p>
+                  </div>
+                  <div class="four columns icono icono2">
+                      <p>Instructores Expertos <br>
+                      Aprende con distintos estilos</p>
+                  </div>
+                  <div class="four columns icono icono3">
+                      <p>Acceso de por vida <br>
+                      Aprende a tu ritmo</p>
+                  </div>
+          </div>
+      </div>
+
+  </div>
+  
+
+<div class="col-md-9 mx-auto mb-3">
+    <h2>Cursos</h2>
+    <hr>
+    <div class="row">
+      {% for curso in cursos %}
+        <div class=" card col-md-3 mt-2 card border-secondary mb-3 shadow p-3 shadow p-3 mb-5 bg-white rounded" style="padding:8px;  margin:39px; ;">
+          <div class="row p-2">
+            <div class="col-md-12 ">
+              {% if curso.imagen %}
+                <img src="{{curso.imagen.url}}" class="img-fluid profile-avatar">
+              {% else %}
+                <img src="{% static 'registration/img/no-avatar.jpg' %}" class="img-fluid profile-avatar">
+              {% endif %}
+              <p class="">
+                <img src="{% static 'core/Img/estrellas.png'%}">
+                <h2 class="text-capitalize">{{curso.titulo}}</h2>
+                <h5 class="text-capitalize">Profesor: {{curso.idAutor.username}}</h5>
+                <h5>CLP $ {{curso.precio}} </h5>
+                <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Comprar</a>
+                <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ver</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <!-- Menú de paginación -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+          <li class="page-item ">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+          </li>
+        {% endif %}
+        {% for i in paginator.page_range %}
+          <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+          </li>
+        {% endfor %}
+        {% if page_obj.has_next %}
+          <li class="page-item ">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+
+  
+</div>
+{% endblock %}
+
+
+
