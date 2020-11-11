@@ -36,7 +36,7 @@ class Curso(models.Model):
     titulo = models.CharField( max_length=50)
     descripcion = models.TextField( max_length=200)
     anio = models.CharField( max_length=50,verbose_name="año")
-    precio = models.IntegerField() 
+    precio = models.IntegerField(default=10000 ,editable=False) 
     idAutor = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
     email = models.CharField( max_length=50)
     imagen = models.ImageField(upload_to="curso", null=True)
