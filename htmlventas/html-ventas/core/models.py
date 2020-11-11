@@ -73,5 +73,3 @@ class Region(models.Model) :
 
 
     
-
-    

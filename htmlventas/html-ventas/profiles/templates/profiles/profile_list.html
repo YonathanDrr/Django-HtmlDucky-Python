@@ -10,6 +10,7 @@
         <h2>Profesores</h2>
         <div class="row">
           {% for profile in profile_list %}
+          {% if profile.profe_is == 0 %}
             <div class=" card col-md-4 mt-2 mb-3 " style="padding:8px;  margin:2px; background-color:#D7BDE2 ;">
               <div class="row p-1">
                 <div class="col-md-12">
@@ -19,12 +20,13 @@
                     <img src="{% static 'registration/img/no-avatar.jpg' %}" class="img-fluid profile-avatar">
                   {% endif %}
                   <p class="profile-data">
-                    <b>{{profile.user|truncatechars:"16"}}</b><br>
+                    <b>{{profile.user|truncatechars:"16"}}</b><br>              
                     <a href="{% url 'profiles:detail' profile.user %}">Ver perfil</a>
                   </p>
                 </div>
               </div>
             </div>
+          {% endif %}
           {% endfor %}
         </div>
         <!-- Menú de paginación -->

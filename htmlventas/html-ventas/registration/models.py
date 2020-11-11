@@ -15,6 +15,7 @@ class Profile(models.Model):
     avatar = models.ImageField(upload_to=custom_upload_to, null=True, blank=True)
     bio = models.TextField(null=True, blank=True)
     link = models.URLField(max_length=200, null=True, blank=True)
+    profe_is = models.IntegerField(default=0)
 
     class Meta:
         ordering = ['user__username']
