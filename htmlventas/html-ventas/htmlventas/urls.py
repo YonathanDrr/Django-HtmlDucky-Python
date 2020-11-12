@@ -30,6 +30,7 @@ urlpatterns = [
     # Paths de profiles
     path('profiles/', include(profiles_patterns)),
     # Paths de Messenger
+    #sss
     path('messenger/', include(messenger_patterns)),
     
 ]
