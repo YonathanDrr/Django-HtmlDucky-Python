@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'messenger',
     #'pages.apps.PagesConfig',
     'profiles',
-    #'mantenedor',
+    'mantenedor',
     'bootstrap4',
 
 ]
