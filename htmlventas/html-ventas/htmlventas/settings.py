@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'messenger',
     #'pages.apps.PagesConfig',
     'profiles',
+    'pwa',
     'mantenedor',
     'bootstrap4',
 
@@ -139,6 +140,10 @@ if DEBUG:
 else:
     # Aquí hay que configurar un email real para producción
     pass
+
+
+#ServicesWorker
+PWA_SERVICES_WORKER_PATH = os.path.join(BASE_DIR,'serviceworker.js')
 
 # Media Files
 MEDIA_URL = '/media/'

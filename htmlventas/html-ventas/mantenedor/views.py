@@ -20,13 +20,13 @@ def producto(request):
     data = {
         'cursos' : cursos
     }
-    return render(request,"mantenedor/Productos/FrCurso.html",data)
+    return render(request,"mantenedor/Mgeneral/FrCurso.html",data)
 
 def modelo(request):
-    return render(request,"mantenedor/Productos/FrDetalle.html")
+    return render(request,"mantenedor/Mgeneral/FrDetalle.html")
 
 def marca(request):
-    return render(request,"mantenedor/Productos/FrSucursal.html")
+    return render(request,"mantenedor/Mgeneral/FrSucursal.html")
 
 
  
