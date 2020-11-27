@@ -1,10 +1,13 @@
 from django.views.generic.base import TemplateView
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from.models import Curso,Compra
 from django.shortcuts import get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
+#REST_FRAMEWORK
+from rest_framework import viewsets
+from.serializers import CursoSerializers
 
 
 #Vistas basadas en clases
@@ -49,3 +52,6 @@ class CompraDetailView(DetailView):
 
 
 
+class CursoViewSet(viewsets.ModelViewSet):
+    queryset = Curso.objects.all()
+    serializer_class = CursoSerializers

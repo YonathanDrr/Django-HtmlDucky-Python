@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Curso,Comuna,Sucursale
+from .models import Curso,Comuna,Sucursale,Region
 from registration.models import Profile
 from core.models import Compra
 
@@ -9,6 +9,7 @@ from core.models import Compra
 
  
 admin.site.register(Curso)
+admin.site.register(Region)
 admin.site.register(Comuna)
 admin.site.register(Compra)
 admin.site.register(Profile)

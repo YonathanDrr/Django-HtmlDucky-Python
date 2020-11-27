@@ -5,9 +5,12 @@ from django.http import HttpResponse
 from django.urls import reverse
 from core.models import Curso,Compra
 from django.contrib import messages 
-from django.contrib.messages.views import SuccessMessageMixin 
- 
+from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import get_object_or_404
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from django import forms
+
 
 
 
@@ -16,11 +19,8 @@ def index(request):
     return render(request,"mantenedor/index.html")
 
 def producto(request):
-    cursos = Curso.objects.all()
-    data = {
-        'cursos' : cursos
-    }
-    return render(request,"mantenedor/Mgeneral/FrCurso.html",data)
+  
+    return render(request,"mantenedor/Mgeneral/FrCurso.html")
 
 def modelo(request):
     return render(request,"mantenedor/Mgeneral/FrDetalle.html")
@@ -28,5 +28,3 @@ def modelo(request):
 def marca(request):
     return render(request,"mantenedor/Mgeneral/FrSucursal.html")
 
-
- 

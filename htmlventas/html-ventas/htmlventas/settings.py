@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'pwa',
     'mantenedor',
     'bootstrap4',
+    'widget_tweaks',
+    'crispy_forms',
+    'rest_framework',
 
 ]
 
