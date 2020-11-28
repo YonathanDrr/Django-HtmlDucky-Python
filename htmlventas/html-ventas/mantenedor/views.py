@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django import forms
-
+from .forms import CursosForms
 
 
 
@@ -18,13 +18,26 @@ def index(request):
  
     return render(request,"mantenedor/index.html")
 
-def producto(request):
-  
-    return render(request,"mantenedor/Mgeneral/FrCurso.html")
+def ListarCursos(request):
+    cursos = Curso.objects.all()
+    data = {
+        'cursos': cursos
+    }
+    return render(request,'mantenedor/Mgeneral/FrCurso.html',data)
 
-def modelo(request):
-    return render(request,"mantenedor/Mgeneral/FrDetalle.html")
+def AgregarCursos(request):
+    data = {
+        'form' : CursosForms
+    }
+    if request.method == 'POST':
+        formulario = CursosForms(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] = "Curso Agregado exitosamente"
+            
+    return render(request,"mantenedor/Mgeneral/FrDetalle.html",data)
 
 def marca(request):
     return render(request,"mantenedor/Mgeneral/FrSucursal.html")
+
 

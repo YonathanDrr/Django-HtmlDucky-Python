@@ -24,7 +24,31 @@
 										<form action="" method="post">
 
 											{% csrf_token  %}	
-											
+											<h1>hiola</h1>
+											<table>
+													<tr>
+														<th>Titulo</th>
+														<th>Descripcion</th>
+														<th>Año</th>
+														<th>Precio</th>
+														<th>Autor</th>
+														<th>Email</th>
+														<th>Sucursal</th>
+
+													</tr>
+											</table>
+											{% for c in cursos %}
+											 <tr>
+												 <td>{{c.titulo }}</td>
+												 <td>{{ c.descripcion }}</td>
+												 <td>{{ c.anio }}</td>
+												 <td>{{ c.precio }}</td>
+												 <td>{{ c.idAutor.first_name }}</td>
+												 <td>{{ c.email }}</td>
+												 <td>{{ c.idSucursal.nombre }}</td>
+											 </tr>
+
+											{% endfor %}
 
 										<div class="d-flex justify-content-center">
 											<input type="reset" value="Guardar" class="btn btn-secondary">

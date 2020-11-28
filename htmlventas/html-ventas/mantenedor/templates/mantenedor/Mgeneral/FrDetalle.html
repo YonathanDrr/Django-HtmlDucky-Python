@@ -1,4 +1,6 @@
 {% load static %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
 
 <section class="content">
     <div class="row">
@@ -8,44 +10,46 @@
                     <table id="tblTitulo1" class="table1" width="100%">
                       <tr>
                         <td>
-                          <h2><b>&nbsp;&nbsp;Cursos</b></h2></td>
+                          <h2><b>&nbsp;&nbsp;Agregar Cursos</b></h2></td>
                       </tr>
                     </table>
 <hr>
-					<div class="container_table box-title table-responsive" style="width: 100%">
-					  <form class="form-horizontal well" id="forms-registro">
-					    <div class="form-group">
-   						
-							
-								{% for curso in cursos %}
-								  <div class=" card col-md-3 mt-2 card border-secondary mb-3 shadow p-3 shadow p-3 mb-5 bg-white rounded" style="padding:8px;  margin:39px; ;">
-									<div class="row p-2">
-									  <div class="col-md-12 ">
-										{% if curso.imagen %}
-										  <img src="{{curso.imagen.url}}" class="img-fluid profile-avatar">
-										{% else %}
-										  <img src="{% static 'registration/img/no-avatar.jpg' %}" class="img-fluid profile-avatar">
-										{% endif %}
-										<p class="">
-										  <img src="{% static 'core/Img/estrellas.png'%}">
-										  <h2 class="text-capitalize">{{curso.titulo}}</h2>
-										  <h5 class="text-capitalize">Sucursal: {{curso.idSucursal.nombre}}</h5>
-										  <h5 class="">CLP $ {{curso.precio}} </h5>
-										  <a href="#" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Comprar</a>
-										  <a href="#" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Ver</a>
-										</p>
-									  </div>
+						<div class="card">
+							<div class="card-body">
+
+
+								<div class="row">
+									<div class="col-12 col-md-6 offset-md-3">
+
+										<form action="" method="POST">
+
+											{% csrf_token  %}	
+											
+											<table>
+											{{ form.as_table }}
+
+											</table>
+											
+										
+
+										<div class="d-flex justify-content-center">
+											<input type="reset" value="Limpiar" class="btn btn-secondary">
+											<input type="submit" value="Guardar" class="btn btn-primary">
+										</div>
+
+
+
+										</form>
+
+										{{ mensaje }}
+
 									</div>
-								  </div>
-								{% endfor %}
-							  
-						
-						  </form>
-					  </div>
+								</div>
 
-<!-- **************************************************************************-->
 
-  </div>
+
+							</div>
+						</div>
 </div>
 </div>
 </div>

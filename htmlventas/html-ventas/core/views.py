@@ -9,6 +9,9 @@ from django.views.generic.detail import DetailView
 from rest_framework import viewsets
 from.serializers import CursoSerializers
 
+#STRIPE
+import stripe
+stripe.api_key='sk_test_51HsGjSEyhh4JF78jovdaiKr4lXSG2cXrmRa8YTUFo0xehrsnd6SQJJrlcnHttUexLCuNwctpjy0scosQsVKStziG00DTmryxqm'
 
 #Vistas basadas en clases
 
@@ -55,3 +58,21 @@ class CompraDetailView(DetailView):
 class CursoViewSet(viewsets.ModelViewSet):
     queryset = Curso.objects.all()
     serializer_class = CursoSerializers
+
+
+#Pagos con Stripe
+
+def compra(request):
+    cursos = Curso.objects.all()
+    data = {
+        'cursos' : cursos
+    }
+    return render(request,'core/Compras/compraCurso.html',data)    
+
+def cargo(request):
+    if request.POST:
+        precio = request.POST["precio"]
+    redirect('Gracias !')
+
+def gracias(request):
+    render(request,'core/Compras/gracias.html')

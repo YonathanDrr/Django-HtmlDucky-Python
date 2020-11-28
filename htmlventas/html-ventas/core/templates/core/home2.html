@@ -18,7 +18,7 @@
                   <div class="six columns">
                       <div class="contenido-hero">
                               <h2>Aprende algo nuevo</h2>
-                              <p>Todos los cursos a $10.000 CLP</p>
+                              <p>Todos los cursos a $1 CLP</p>
                               <form action="#" id="busqueda" method="post" class="formulario">
                                   <input class="u-full-width" type="text" placeholder="¿Que te gustaría Aprender?" id="buscador">
                                   <input type="submit" id="submit-buscador" class="submit-buscador">
@@ -68,7 +68,7 @@
                 <h2 class="text-capitalize">{{curso.titulo}}</h2>
                 <h5 class="text-capitalize">Sucursal: {{curso.idSucursal.nombre}}</h5>
                 <h5 class="">CLP $ {{curso.precio}} </h5>
-                <a href="#" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Comprar</a>
+                <a href="{% url 'Compras'%}" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Comprar</a>
                 <a href="#" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Ver</a>
               </p>
             </div>
